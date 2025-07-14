@@ -179,7 +179,11 @@ return [
         'date_on_sale_from' => 'تاریخ شروع حراجی',
         'date_on_sale_to' => 'تاریخ پایان حراجی',
         'expire_at' => 'تاریخ انقضا',
-        'image_address' => 'عکس'
+        'image_address' => 'عکس',
+        'contact_title' => 'عنوان بخش تماس با ما',
+        'info_title' => 'عنوان بخش معرفی',
+        'info_body' => 'متن بخش معرفی',
+        'work_hours_title' => 'عنوان روزهای کاری',
     ],
 
 ];

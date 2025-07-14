@@ -57,7 +57,7 @@
             </li>
             <li class="nav-item dropdown-center">
                 <a class="nav-link dropdown-toggle
-                    {{ request()->is('sliders*', 'features*', 'about-us*') ? 'active' : '' }}"
+                    {{ request()->is('sliders*', 'features*', 'about-us*', 'footer*') ? 'active' : '' }}"
                     href="#" role="button" data-bs-toggle="dropdown">
                     <i class="bi bi-gear  me-2"></i>
                     تنظیمات سایت
@@ -73,7 +73,7 @@
                         <a class="dropdown-item" href="{{ route('about-us.index') }}">بخش درباره ما</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">بخش فوتر</a>
+                        <a class="dropdown-item" href="{{ route('footer.index') }}">بخش فوتر</a>
                     </li>
                 </ul>
             </li>

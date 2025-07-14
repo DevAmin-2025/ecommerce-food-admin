@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FooterController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\FeatureController;
@@ -37,4 +38,10 @@ Route::group(['prefix' => 'contact-us'], function () {
     Route::get('/', [ContactUsController::class, 'index'])->name('contact-us.index');
     Route::get('{contactUs}/show', [ContactUsController::class, 'show'])->name('contact-us.show');
     Route::delete('{contactUs}', [ContactUsController::class, 'destroy'])->name('contact-us.destroy');
+});
+
+Route::group(['prefix' => 'footer'], function () {
+    Route::get('/', [FooterController::class, 'index'])->name('footer.index');
+    Route::get('{footer}/edit', [FooterController::class, 'edit'])->name('footer.edit');
+    Route::put('{footer}', [FooterController::class, 'update'])->name('footer.update');
 });
