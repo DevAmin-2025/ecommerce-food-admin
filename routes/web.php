@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\FeatureController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SliderController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\FeatureController;
 
 Route::get('/', [HomeController::class, 'dashboard'])->name('dashboard');
 
@@ -23,4 +24,10 @@ Route::group(['prefix' => 'features'], function () {
     Route::get('{feature}/edit', [FeatureController::class, 'edit'])->name('feature.edit');
     Route::put('{feature}', [FeatureController::class, 'update'])->name('feature.update');
     Route::delete('{feature}', [FeatureController::class, 'destroy'])->name('feature.destroy');
+});
+
+Route::group(['prefix' => 'about-us'], function () {
+    Route::get('/', [AboutUsController::class, 'index'])->name('about-us.index');
+    Route::get('{aboutUs}/edit', [AboutUsController::class, 'edit'])->name('about-us.edit');
+    Route::put('{aboutUs}', [AboutUsController::class, 'update'])->name('about-us.update');
 });

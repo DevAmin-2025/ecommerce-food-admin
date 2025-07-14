@@ -178,7 +178,8 @@ return [
         'sale_price' => 'قیمت حراجی',
         'date_on_sale_from' => 'تاریخ شروع حراجی',
         'date_on_sale_to' => 'تاریخ پایان حراجی',
-        'expire_at' => 'تاریخ انقضا'
+        'expire_at' => 'تاریخ انقضا',
+        'image_address' => 'عکس'
     ],
 
 ];
