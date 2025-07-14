@@ -56,14 +56,15 @@
                 </a>
             </li>
             <li class="nav-item dropdown-center">
-                <a class="nav-link dropdown-toggle"
+                <a class="nav-link dropdown-toggle
+                    {{ request()->is('sliders*') ? 'active' : '' }}"
                     href="#" role="button" data-bs-toggle="dropdown">
                     <i class="bi bi-gear  me-2"></i>
                     تنظیمات سایت
                 </a>
                 <ul class="dropdown-menu sidebar-menu">
                     <li>
-                        <a class="dropdown-item" href="#">اسلایدر صفحه اصلی</a>
+                        <a class="dropdown-item" href="{{ route('slider.index') }}">اسلایدر صفحه اصلی</a>
                     </li>
                     <li>
                         <a class="dropdown-item" href="#">بخش ویژگی ها</a>
