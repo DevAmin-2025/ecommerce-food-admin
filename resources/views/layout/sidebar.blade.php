@@ -49,8 +49,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link"
-                    href="#">
+                <a class="nav-link {{ request()->is('contact-us*') ? 'active' : '' }}"
+                    href="{{ route('contact-us.index') }}">
                     <i class="bi bi-chat-left-text me-2"></i>
                     پیام های ارتباط با ما
                 </a>

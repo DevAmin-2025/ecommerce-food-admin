@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\ContactUsController;
 
 Route::get('/', [HomeController::class, 'dashboard'])->name('dashboard');
 
@@ -30,4 +31,10 @@ Route::group(['prefix' => 'about-us'], function () {
     Route::get('/', [AboutUsController::class, 'index'])->name('about-us.index');
     Route::get('{aboutUs}/edit', [AboutUsController::class, 'edit'])->name('about-us.edit');
     Route::put('{aboutUs}', [AboutUsController::class, 'update'])->name('about-us.update');
+});
+
+Route::group(['prefix' => 'contact-us'], function () {
+    Route::get('/', [ContactUsController::class, 'index'])->name('contact-us.index');
+    Route::get('{contactUs}/show', [ContactUsController::class, 'show'])->name('contact-us.show');
+    Route::delete('{contactUs}', [ContactUsController::class, 'destroy'])->name('contact-us.destroy');
 });
