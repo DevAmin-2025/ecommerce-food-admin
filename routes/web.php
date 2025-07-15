@@ -6,6 +6,7 @@ use App\Http\Controllers\FooterController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactUsController;
 
@@ -54,4 +55,14 @@ Route::group(['prefix' => 'categories'], function () {
     Route::get('{category}/edit', [CategoryController::class, 'edit'])->name('category.edit');
     Route::put('{category}', [CategoryController::class, 'update'])->name('category.update');
     Route::delete('{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
+});
+
+Route::group(['prefix' => 'products'], function () {
+    Route::get('/', [ProductController::class, 'index'])->name('product.index');
+    Route::get('create', [ProductController::class, 'create'])->name('product.create');
+    Route::post('store', [ProductController::class, 'store'])->name('product.store');
+    Route::get('show/{product}', [ProductController::class, 'show'])->name('product.show');
+    Route::get('{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
+    Route::put('{product}', [ProductController::class, 'update'])->name('product.update');
+    Route::delete('{product}', [ProductController::class, 'destroy'])->name('product.destroy');
 });
