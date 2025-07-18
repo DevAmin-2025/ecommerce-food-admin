@@ -9,60 +9,70 @@ use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\CouponController;
 
 Route::get('/', [HomeController::class, 'dashboard'])->name('dashboard');
 
-Route::group(['prefix' => 'sliders'], function () {
-    Route::get('/', [SliderController::class, 'index'])->name('slider.index');
-    Route::get('create', [SliderController::class, 'create'])->name('slider.create');
-    Route::post('store', [SliderController::class, 'store'])->name('slider.store');
-    Route::get('{slider}/edit', [SliderController::class, 'edit'])->name('slider.edit');
-    Route::put('{slider}', [SliderController::class, 'update'])->name('slider.update');
-    Route::delete('{slider}', [SliderController::class, 'destroy'])->name('slider.destroy');
+Route::prefix('sliders')->controller(SliderController::class)->group(function () {
+    Route::get('/', 'index')->name('slider.index');
+    Route::get('create', 'create')->name('slider.create');
+    Route::post('store', 'store')->name('slider.store');
+    Route::get('{slider}/edit', 'edit')->name('slider.edit');
+    Route::put('{slider}', 'update')->name('slider.update');
+    Route::delete('{slider}', 'destroy')->name('slider.destroy');
 });
 
-Route::group(['prefix' => 'features'], function () {
-    Route::get('/', [FeatureController::class, 'index'])->name('feature.index');
-    Route::get('create', [FeatureController::class, 'create'])->name('feature.create');
-    Route::post('store', [FeatureController::class, 'store'])->name('feature.store');
-    Route::get('{feature}/edit', [FeatureController::class, 'edit'])->name('feature.edit');
-    Route::put('{feature}', [FeatureController::class, 'update'])->name('feature.update');
-    Route::delete('{feature}', [FeatureController::class, 'destroy'])->name('feature.destroy');
+Route::prefix('features')->controller(FeatureController::class)->group(function () {
+    Route::get('/', 'index')->name('feature.index');
+    Route::get('create', 'create')->name('feature.create');
+    Route::post('store', 'store')->name('feature.store');
+    Route::get('{feature}/edit', 'edit')->name('feature.edit');
+    Route::put('{feature}', 'update')->name('feature.update');
+    Route::delete('{feature}', 'destroy')->name('feature.destroy');
 });
 
-Route::group(['prefix' => 'about-us'], function () {
-    Route::get('/', [AboutUsController::class, 'index'])->name('about-us.index');
-    Route::get('{aboutUs}/edit', [AboutUsController::class, 'edit'])->name('about-us.edit');
-    Route::put('{aboutUs}', [AboutUsController::class, 'update'])->name('about-us.update');
+Route::prefix('about-us')->controller(AboutUsController::class)->group(function () {
+    Route::get('/', 'index')->name('about-us.index');
+    Route::get('{aboutUs}/edit', 'edit')->name('about-us.edit');
+    Route::put('{aboutUs}', 'update')->name('about-us.update');
 });
 
-Route::group(['prefix' => 'contact-us'], function () {
-    Route::get('/', [ContactUsController::class, 'index'])->name('contact-us.index');
-    Route::get('{contactUs}/show', [ContactUsController::class, 'show'])->name('contact-us.show');
-    Route::delete('{contactUs}', [ContactUsController::class, 'destroy'])->name('contact-us.destroy');
+Route::prefix('contact-us')->controller(ContactUsController::class)->group(function () {
+    Route::get('/', 'index')->name('contact-us.index');
+    Route::get('{contactUs}/show', 'show')->name('contact-us.show');
+    Route::delete('{contactUs}', 'destroy')->name('contact-us.destroy');
 });
 
-Route::group(['prefix' => 'footer'], function () {
-    Route::get('/', [FooterController::class, 'index'])->name('footer.index');
-    Route::get('{footer}/edit', [FooterController::class, 'edit'])->name('footer.edit');
-    Route::put('{footer}', [FooterController::class, 'update'])->name('footer.update');
+Route::prefix('footer')->controller(FooterController::class)->group(function () {
+    Route::get('/', 'index')->name('footer.index');
+    Route::get('{footer}/edit', 'edit')->name('footer.edit');
+    Route::put('{footer}', 'update')->name('footer.update');
 });
 
-Route::group(['prefix' => 'categories'], function () {
-    Route::get('/', [CategoryController::class, 'index'])->name('category.index');
-    Route::get('create', [CategoryController::class, 'create'])->name('category.create');
-    Route::post('store', [CategoryController::class, 'store'])->name('category.store');
-    Route::get('{category}/edit', [CategoryController::class, 'edit'])->name('category.edit');
-    Route::put('{category}', [CategoryController::class, 'update'])->name('category.update');
-    Route::delete('{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
+Route::prefix('categories')->controller(CategoryController::class)->group(function () {
+    Route::get('/', 'index')->name('category.index');
+    Route::get('create', 'create')->name('category.create');
+    Route::post('store', 'store')->name('category.store');
+    Route::get('{category}/edit', 'edit')->name('category.edit');
+    Route::put('{category}', 'update')->name('category.update');
+    Route::delete('{category}', 'destroy')->name('category.destroy');
 });
 
-Route::group(['prefix' => 'products'], function () {
-    Route::get('/', [ProductController::class, 'index'])->name('product.index');
-    Route::get('create', [ProductController::class, 'create'])->name('product.create');
-    Route::post('store', [ProductController::class, 'store'])->name('product.store');
-    Route::get('show/{product}', [ProductController::class, 'show'])->name('product.show');
-    Route::get('{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
-    Route::put('{product}', [ProductController::class, 'update'])->name('product.update');
-    Route::delete('{product}', [ProductController::class, 'destroy'])->name('product.destroy');
+Route::prefix('products')->controller(ProductController::class)->group(function () {
+    Route::get('/', 'index')->name('product.index');
+    Route::get('create', 'create')->name('product.create');
+    Route::post('store', 'store')->name('product.store');
+    Route::get('show/{product}', 'show')->name('product.show');
+    Route::get('{product}/edit', 'edit')->name('product.edit');
+    Route::put('{product}', 'update')->name('product.update');
+    Route::delete('{product}', 'destroy')->name('product.destroy');
+});
+
+Route::prefix('coupons')->controller(CouponController::class)->group(function () {
+    Route::get('/', 'index')->name('coupon.index');
+    Route::get('create', 'create')->name('coupon.create');
+    Route::post('store', 'store')->name('coupon.store');
+    Route::get('{coupon}/edit', 'edit')->name('coupon.edit');
+    Route::put('{coupon}', 'update')->name('coupon.update');
+    Route::delete('{coupon}', 'destroy')->name('coupon.destroy');
 });
