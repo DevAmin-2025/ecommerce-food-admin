@@ -184,7 +184,8 @@ return [
         'info_title' => 'عنوان بخش معرفی',
         'info_body' => 'متن بخش معرفی',
         'work_hours_title' => 'عنوان روزهای کاری',
-        'percentage' => 'درصد تخفیف'
+        'percentage' => 'درصد تخفیف',
+        'role_ids' => 'نقش ها'
     ],
 
 ];

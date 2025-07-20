@@ -1,7 +1,12 @@
 <?php
 
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CouponController;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\AboutUsController;
@@ -9,9 +14,6 @@ use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactUsController;
-use App\Http\Controllers\CouponController;
-use App\Http\Controllers\OrderController;
-use App\Models\Transaction;
 
 Route::get('/', [HomeController::class, 'dashboard'])->name('dashboard');
 
@@ -89,3 +91,19 @@ Route::get('transactions', function () {
     $transactions = Transaction::latest()->paginate(10);
     return view('transactions.index', compact('transactions'));
 })->name('transactions');
+
+Route::prefix('users')->controller(UserController::class)->name('user.')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('create', 'create')->name('create');
+    Route::post('store', 'store')->name('store');
+    Route::get('{user}/edit', 'edit')->name('edit');
+    Route::put('{user}', 'update')->name('update');
+});
+
+Route::prefix('roles')->controller(RoleController::class)->name('role.')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('create', 'create')->name('create');
+    Route::post('store', 'store')->name('store');
+    Route::get('{role}/edit', 'edit')->name('edit');
+    Route::put('{role}', 'update')->name('update');
+});
