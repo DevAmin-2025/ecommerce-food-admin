@@ -23,8 +23,8 @@
         <div class="w-100"></div>
         <div class="navbar-nav">
             <div class="nav-item text-nowrap d-flex align-items-center">
-                <span class="nav-link text-white">نام کابر</span>
-                <form action="#" method="POST">
+                <span class="nav-link text-white">{{ Auth::user()->name }}</span>
+                <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button class="nav-link text-white px-3">خروج</button>
                 </form>
