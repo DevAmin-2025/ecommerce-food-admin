@@ -28,12 +28,16 @@
                         <td>{{ $user->roles->implode('name', ',') }}</td>
                         <td>
                             <div class="d-flex">
-                                <a href="{{ route('user.edit', $user->id) }}" class="btn btn-sm btn-outline-info me-2">ویرایش</a>
+                                <a href="{{ route('user.edit', $user->id) }}"
+                                    class="btn btn-sm btn-outline-info me-2">ویرایش</a>
                             </div>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+        <div class="d-flex justify-content-center mt-4">
+            {{ $users->links() }}
+        </div>
     </div>
 @endsection
